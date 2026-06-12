@@ -1,10 +1,8 @@
 FROM node:22-alpine AS builder
 WORKDIR /app
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@9.15.4 --activate
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --no-frozen-lockfile --config.confirmModulesPurge=false; \
-    pnpm config set enable-pre-post-scripts true; \
-    pnpm rebuild
+RUN pnpm install --no-frozen-lockfile
 COPY . .
 RUN pnpm build
 RUN pnpm prune --prod
