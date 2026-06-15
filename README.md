@@ -102,7 +102,6 @@ xeno-channel-service/
 └── .github/workflows/deploy.yml    # CI/CD: build → GHCR → EC2
 ```
 
-> ℹ️ Verify the exact folder names against your repo and adjust before publishing.
 
 ---
 
